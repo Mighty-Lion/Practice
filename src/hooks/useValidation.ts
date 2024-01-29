@@ -5,25 +5,11 @@ const validateEmail = (email: string | undefined) => {
   return Yup.string().email().isValidSync(email);
 };
 
-const validatePhone = (phone: number | undefined) => {
-  return Yup.number()
-    .integer()
-    .positive()
-    .test(() => {
-      return !!(
-        phone &&
-        phone.toString().length >= 8 &&
-        phone.toString().length <= 14
-      );
-    })
-    .isValidSync(phone);
-};
-
 const loginValidationSchema = Yup.object({
-  emailorphone: Yup.string()
+  email: Yup.string()
     .required('Email / Phone is required')
     .test('emailorphone', 'Email / Phone is invalid', (value) => {
-      return validateEmail(value) || validatePhone(parseInt(value ?? '0', 10));
+      return validateEmail(value);
     }),
   password: Yup.string()
     .required('Password cannot be empty')
@@ -34,11 +20,12 @@ export function useValidation() {
   const formik = useFormik({
     initialValues: {
       id: undefined,
-      emailorphone: 'Почта / Телефон',
+      email: 'Почта',
       password: 'Пароль',
     },
     validationSchema: loginValidationSchema,
     onSubmit: (values) => {
+      console.log('Submit');
       console.log(values);
     },
   });
