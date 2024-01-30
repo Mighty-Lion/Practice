@@ -3,11 +3,15 @@ import {
   AuthForm,
   FormWrapper,
   InputWrapper,
+  OpenPasswordButton,
+  PasswordImg,
 } from '@/pages/Home/index.styles';
 import { useValidation } from '@/hooks/useValidation';
+import { usePassInput } from '@/hooks/usePassInput';
 
 export default function Home() {
   const { formik } = useValidation();
+  const { typeInput, passImg, handlePassInput } = usePassInput();
 
   return (
     <FormWrapper>
@@ -19,7 +23,7 @@ export default function Home() {
             name="email"
             type="email"
             onChange={formik.handleChange}
-            value={formik.values.email}
+            placeholder={formik.values.email}
           />
         </InputWrapper>
         <InputWrapper>
@@ -27,10 +31,17 @@ export default function Home() {
           <input
             id="password"
             name="password"
-            type="password"
+            type={typeInput}
             onChange={formik.handleChange}
-            value={formik.values.password}
+            placeholder={formik.values.password}
           />
+          <OpenPasswordButton
+            onClick={() => {
+              handlePassInput();
+            }}
+          >
+            <PasswordImg src={passImg} alt="passImg" />
+          </OpenPasswordButton>
         </InputWrapper>
         <Button
           type="submit"
