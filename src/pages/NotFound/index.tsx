@@ -7,6 +7,7 @@ function Index() {
       <h1
         className={css`
           margin-bottom: 20px;
+          color: white;
         `}
       >
         Not Found

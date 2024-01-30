@@ -1,18 +1,8 @@
-import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home/index';
-import NotFound from './pages/NotFound/index';
 import Layout from './components/Layout';
-import { useAuthorization } from '@/hooks/useAuthorization';
+import { useRoutes } from '@/routes/routes';
 
 export function App() {
-  const { isAuthorized } = useAuthorization();
+  const routes = useRoutes();
 
-  return (
-    <Layout>
-      <Routes>
-        <Route path="/" element={isAuthorized ? <NotFound /> : <Home />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Layout>
-  );
+  return <Layout>{routes}</Layout>;
 }
