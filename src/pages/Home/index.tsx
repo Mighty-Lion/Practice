@@ -8,6 +8,7 @@ import { useValidation } from '@/hooks/useValidation';
 
 export default function Home() {
   const { formik } = useValidation();
+
   return (
     <FormWrapper>
       <AuthForm onSubmit={formik.handleSubmit}>
@@ -16,7 +17,7 @@ export default function Home() {
           <input
             id="email"
             name="email"
-            type="text"
+            type="email"
             onChange={formik.handleChange}
             value={formik.values.email}
           />
@@ -26,7 +27,7 @@ export default function Home() {
           <input
             id="password"
             name="password"
-            type="text"
+            type="password"
             onChange={formik.handleChange}
             value={formik.values.password}
           />

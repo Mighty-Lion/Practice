@@ -7,11 +7,14 @@ import './css/colors.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import { App } from '@/App';
+import { AuthorizationProvider } from '@/providers/AuthorizationProvider';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <Router>
-      <App />
+      <AuthorizationProvider>
+        <App />
+      </AuthorizationProvider>
     </Router>
     <ToastContainer
       position="top-right"
