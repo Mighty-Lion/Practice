@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import {useEffect, useState} from 'react';
 import {
   Button,
   AuthForm,
@@ -13,6 +13,7 @@ import { useValidation } from '@/hooks/useValidation';
 import { usePassInput } from '@/hooks/usePassInput';
 
 export default function Login() {
+  const [rerender, setRerender] = useState(false)
   const { formik } = useValidation();
   const { typeInput, passImg, handlePassInput } = usePassInput();
   const apiUrl = import.meta.env.VITE_API_URL;
@@ -23,6 +24,26 @@ export default function Login() {
     const urlParams = new URLSearchParams(queryString);
     const codeParam = urlParams.get('code');
     console.log(codeParam);
+    async function getAccessToken() {
+      await fetch(`http://localhost:4000/getAccessToken?code=${codeParam}`, {
+        method: 'GET',
+      })
+        .then((responce) => {
+          return responce.json();
+        })
+        .then((data) => {
+          console.log(data);
+
+          if (data.access_token) {
+            localStorage.setItem('accessToken', data.access_token);
+            setRerender(!rerender);
+          }
+        });
+    }
+
+    if (codeParam && localStorage.getItem('accessToken') === null) {
+      getAccessToken();
+    }
   }, []);
 
   const loginWithGithub = () => {
