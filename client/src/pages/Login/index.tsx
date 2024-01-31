@@ -15,7 +15,8 @@ import { usePassInput } from '@/hooks/usePassInput';
 export default function Login() {
   const { formik } = useValidation();
   const { typeInput, passImg, handlePassInput } = usePassInput();
-
+  const apiUrl = import.meta.env.VITE_API_URL;
+  const apiClientId = import.meta.env.VITE_API_CLIENT_ID;
 
   useEffect(() => {
     const queryString = window.location.search;
