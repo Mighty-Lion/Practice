@@ -25,8 +25,8 @@
   "include": [
     "vite.config.ts",
     ".eslintrc.cjs",
-    "src/**/*",
-    "tests/**/*"
+    "client/src/**/*",
+    "client/tests/**/*"
   ],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [{ "path": "./tsconfig.node.json"}]
 }

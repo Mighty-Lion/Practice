@@ -1,10 +1,13 @@
+import { useEffect } from 'react';
 import {
   Button,
   AuthForm,
   FormWrapper,
   InputWrapper,
   OpenPasswordButton,
-  PasswordImg, LabelForValidate, LabelForInput,
+  PasswordImg,
+  LabelForValidate,
+  LabelForInput,
 } from '@/pages/Login/index.styles';
 import { useValidation } from '@/hooks/useValidation';
 import { usePassInput } from '@/hooks/usePassInput';
@@ -12,6 +15,20 @@ import { usePassInput } from '@/hooks/usePassInput';
 export default function Login() {
   const { formik } = useValidation();
   const { typeInput, passImg, handlePassInput } = usePassInput();
+
+
+  useEffect(() => {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const codeParam = urlParams.get('code');
+    console.log(codeParam);
+  }, []);
+
+  const loginWithGithub = () => {
+    window.location.assign(
+      `https://github.com/login/oauth/authorize?client_id=${apiClientId}`
+    );
+  };
 
   return (
     <FormWrapper>
@@ -52,6 +69,9 @@ export default function Login() {
           }}
         >
           Submit
+        </Button>
+        <Button type="button" onClick={loginWithGithub}>
+          Login with Github
         </Button>
       </AuthForm>
     </FormWrapper>
