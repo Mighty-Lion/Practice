@@ -1,8 +1,13 @@
 import Layout from './components/Layout';
 import { useRoutes } from '@/routes/routes';
+import { AuthorizationProvider } from '@/providers/AuthorizationProvider';
 
 export function App() {
   const routes = useRoutes();
 
-  return <Layout>{routes}</Layout>;
+  return (
+    <AuthorizationProvider>
+      <Layout>{routes}</Layout>
+    </AuthorizationProvider>
+  );
 }
