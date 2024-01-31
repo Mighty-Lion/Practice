@@ -8,7 +8,7 @@ const validateEmail = (email: string | undefined) => {
 const loginValidationSchema = Yup.object({
   email: Yup.string()
     .required('Email / Phone is required')
-    .test('emailorphone', 'Email / Phone is invalid', (value) => {
+    .test('emailorphone', 'Email is invalid', (value) => {
       return validateEmail(value);
     }),
   password: Yup.string()
