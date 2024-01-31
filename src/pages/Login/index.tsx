@@ -4,7 +4,7 @@ import {
   FormWrapper,
   InputWrapper,
   OpenPasswordButton,
-  PasswordImg,
+  PasswordImg, LabelForValidate, LabelForInput,
 } from '@/pages/Login/index.styles';
 import { useValidation } from '@/hooks/useValidation';
 import { usePassInput } from '@/hooks/usePassInput';
@@ -17,7 +17,7 @@ export default function Login() {
     <FormWrapper>
       <AuthForm onSubmit={formik.handleSubmit}>
         <InputWrapper>
-          <label htmlFor="email">Email</label>
+          <LabelForInput htmlFor="email">Email</LabelForInput>
           <input
             id="email"
             name="email"
@@ -25,9 +25,10 @@ export default function Login() {
             onChange={formik.handleChange}
             placeholder={formik.values.email}
           />
+          <LabelForValidate>{formik.errors.email}</LabelForValidate>
         </InputWrapper>
         <InputWrapper>
-          <label htmlFor="password">Password</label>
+          <LabelForInput htmlFor="password">Password</LabelForInput>
           <input
             id="password"
             name="password"
@@ -42,6 +43,7 @@ export default function Login() {
           >
             <PasswordImg src={passImg} alt="passImg" />
           </OpenPasswordButton>
+          <LabelForValidate>{formik.errors.password}</LabelForValidate>
         </InputWrapper>
         <Button
           type="submit"

@@ -11,22 +11,15 @@ export const AuthForm = styled.form`
 `;
 
 export const InputWrapper = styled.div`
-  position: relative; 
+  position: relative;
   display: grid;
   grid-template-columns: 80px auto;
   grid-gap: 15px;
   align-items: center;
+  margin: 0 0 15px 0;
   width: 100%;
   min-width: 350px;
   max-width: 1000px;
-
-  label {
-    font-family: Roboto, sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    color: white;
-  }
 
   input {
     padding: 0 30px 0 5px;
@@ -48,6 +41,26 @@ export const InputWrapper = styled.div`
       color: #626161;
     }
   }
+`;
+
+export const LabelForInput = styled.label`
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  color: white;
+`;
+
+export const LabelForValidate = styled.label`
+  position: absolute;
+  bottom: -15px;
+  left: 30%;
+
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  color: red;
 `;
 
 export const Button = styled.button`
