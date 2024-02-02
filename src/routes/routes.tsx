@@ -4,11 +4,13 @@ import { Home } from '@/pages/Home';
 import { Admin } from '@/pages/Admin';
 import { Logout } from '@/pages/Logout';
 import { PrivateRoute } from '@/components/PrivateRoute';
+import NotFound from '@/pages/NotFound';
 
 export function useRoutes() {
   return (
     <Routes>
       <Route index element={<Home />} />
+      <Route path="*" element={<NotFound />} />
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
 
