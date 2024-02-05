@@ -5,25 +5,10 @@ import querystring from 'querystring';
 import jwt from 'jsonwebtoken';
 import cookieParser from 'cookie-parser';
 import axios from 'axios';
-import cors from 'cors';
 
 const api = express();
 
 const router = Router();
-// router.get('/', (req, res) => {
-//   res.json({
-//     path: 'Home',
-//     firstName: 'Aslan',
-//     lastName: 'Abaev',
-//   });
-// });
-
-router.get('/json', (req, res) => {
-  res.json({
-    path: 'json',
-    author: 'Aslan Abaev',
-  });
-});
 
 router.use(cookieParser());
 
@@ -32,12 +17,7 @@ const GITHUB_CLIENT_SECRET = 'ff0c5c2cdd0bf0565a714ef04af272c7dc95ee76';
 const secret = 'shhhhhhhhhhhh';
 const COOKIE_NAME = 'github-jwt';
 
-router.use(
-  cors({
-    origin: 'http://localhost:5173',
-    credentials: true,
-  })
-);
+//
 
 export interface IGitHubUserProps {
   login: string;
@@ -106,7 +86,9 @@ async function getGitHubUser({
 
 router.get('/github', async (req: Request, res: Response) => {
   const code = get(req, 'query.code' as string);
-  const path = get(req, 'query.path', '/');
+  const { hostname } = req;
+  const host = req.get('host');
+  const path = get(req, 'query.path');
 
   if (!code) {
     throw new Error('No code!');
@@ -118,10 +100,10 @@ router.get('/github', async (req: Request, res: Response) => {
 
   res.cookie(COOKIE_NAME, token, {
     httpOnly: true,
-    domain: 'localhost',
+    domain: hostname,
   });
 
-  res.redirect(`http://localhost:8888${path}`);
+  res.redirect(`http://${host}${path}`);
 });
 
 router.get('/me', (req: Request, res: Response) => {
