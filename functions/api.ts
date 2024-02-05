@@ -17,8 +17,6 @@ const GITHUB_CLIENT_SECRET = 'ff0c5c2cdd0bf0565a714ef04af272c7dc95ee76';
 const secret = 'shhhhhhhhhhhh';
 const COOKIE_NAME = 'github-jwt';
 
-//
-
 export interface IGitHubUserProps {
   login: string;
   id: number;
