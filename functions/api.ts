@@ -1,7 +1,6 @@
 import express, { Router, Request, Response } from 'express';
 import serverless from 'serverless-http';
 import { get } from 'lodash';
-
 import querystring from 'querystring';
 import jwt from 'jsonwebtoken';
 import cookieParser from 'cookie-parser';
@@ -11,13 +10,13 @@ import cors from 'cors';
 const api = express();
 
 const router = Router();
-router.get('/', (req, res) => {
-  res.json({
-    path: 'Home',
-    firstName: 'Aslan',
-    lastName: 'Abaev',
-  });
-});
+// router.get('/', (req, res) => {
+//   res.json({
+//     path: 'Home',
+//     firstName: 'Aslan',
+//     lastName: 'Abaev',
+//   });
+// });
 
 router.get('/json', (req, res) => {
   res.json({
@@ -28,14 +27,14 @@ router.get('/json', (req, res) => {
 
 router.use(cookieParser());
 
-const GITHUB_CLIENT_ID = '';
-const GITHUB_CLIENT_SECRET = '';
+const GITHUB_CLIENT_ID = '6551a3dcf40761866249';
+const GITHUB_CLIENT_SECRET = 'ff0c5c2cdd0bf0565a714ef04af272c7dc95ee76';
 const secret = 'shhhhhhhhhhhh';
 const COOKIE_NAME = 'github-jwt';
 
 router.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: 'http://localhost:5173',
     credentials: true,
   })
 );
@@ -105,8 +104,8 @@ async function getGitHubUser({
     });
 }
 
-router.get('/api/auth/github', async (req: Request, res: Response) => {
-  const code = get(req, 'query.code');
+router.get('/github', async (req: Request, res: Response) => {
+  const code = get(req, 'query.code' as string);
   const path = get(req, 'query.path', '/');
 
   if (!code) {
@@ -122,10 +121,10 @@ router.get('/api/auth/github', async (req: Request, res: Response) => {
     domain: 'localhost',
   });
 
-  res.redirect(`http://localhost:3000${path}`);
+  res.redirect(`http://localhost:8888${path}`);
 });
 
-router.get('/api/me', (req: Request, res: Response) => {
+router.get('/me', (req: Request, res: Response) => {
   const cookie = get(req, `cookies[${COOKIE_NAME}]`);
 
   try {
