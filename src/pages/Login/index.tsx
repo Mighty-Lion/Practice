@@ -20,7 +20,7 @@ export default function Login() {
   const currentUrl = `${window.location.protocol}//${window.location.host}`;
   console.log(currentUrl);
   const GITHUB_CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
-  const gitHubRedirectURL = `currentUrl/.netlify/functions/api/github`;
+  const gitHubRedirectURL = `${currentUrl}/.netlify/functions/api/github`;
   const path = '/login';
 
   const [user, setUser] = useState<any>();
@@ -85,8 +85,7 @@ export default function Login() {
             LOGIN WITH GITHUB
           </a>
         ) : (
-          <h1>Wel
-            {user.login}</h1>
+          <h1>Welcome {user.login}</h1>
         )}
       </AuthForm>
     </FormWrapper>
