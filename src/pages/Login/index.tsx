@@ -17,8 +17,7 @@ export default function Login() {
   const { formik } = useValidation();
   const { typeInput, passImg, handlePassInput } = usePassInput();
 
-  const currentUrl = `${window.location.protocol}//${window.location.host}`;
-  console.log(currentUrl);
+  const currentUrl = `${document.location.protocol}//${document.location.host}`;
   const GITHUB_CLIENT_ID = import.meta.env.VITE_CLIENT_ID;
   const gitHubRedirectURL = `${currentUrl}/.netlify/functions/api/github`;
   const path = '/login';
