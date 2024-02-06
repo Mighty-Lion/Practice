@@ -1,5 +1,27 @@
 import styled from '@emotion/styled';
 
+export const FormWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  a {
+    margin-top: 15px;
+    
+    font-family: Roboto, sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: bold;
+    color: var(--color-white-0);
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+`;
+
 export const AuthForm = styled.form`
   display: grid;
   grid-gap: 10px;

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { useValidation } from '@/hooks/useValidation';
 import { usePassInput } from '@/hooks/usePassInput';
 import {
@@ -13,7 +14,11 @@ import {
   PasswordImg,
 } from '@/components/ControlledForm/index.styles';
 
-export default function ControlledForm() {
+interface IControlledFormProps {
+  linkTo: string;
+  textForLink: string;
+}
+export default function ControlledForm({ linkTo, textForLink }: IControlledFormProps) {
   const { formik } = useValidation();
   const { typeInput, passImg, handlePassInput } = usePassInput();
 
@@ -37,44 +42,46 @@ export default function ControlledForm() {
   }, []);
 
   return (
-    <AuthForm onSubmit={formik.handleSubmit}>
-      <InputWrapper>
-        <InputLabel htmlFor="email">Email</InputLabel>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          onChange={formik.handleChange}
-          placeholder={formik.values.email}
-        />
-        <ValidationLabel>{formik.errors.email}</ValidationLabel>
-      </InputWrapper>
-      <InputWrapper>
-        <InputLabel htmlFor="password">Password</InputLabel>
-        <input
-          id="password"
-          name="password"
-          type={typeInput}
-          onChange={formik.handleChange}
-          placeholder={formik.values.password}
-        />
-        <OpenPasswordButton
+    <FormWrapper>
+      <AuthForm onSubmit={formik.handleSubmit}>
+        <InputWrapper>
+          <InputLabel htmlFor="email">Email</InputLabel>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            onChange={formik.handleChange}
+            placeholder={formik.values.email}
+          />
+          <ValidationLabel>{formik.errors.email}</ValidationLabel>
+        </InputWrapper>
+        <InputWrapper>
+          <InputLabel htmlFor="password">Password</InputLabel>
+          <input
+            id="password"
+            name="password"
+            type={typeInput}
+            onChange={formik.handleChange}
+            placeholder={formik.values.password}
+          />
+          <OpenPasswordButton
+            onClick={() => {
+              handlePassInput();
+            }}
+          >
+            <PasswordImg src={passImg} alt="passImg" />
+          </OpenPasswordButton>
+          <ValidationLabel>{formik.errors.password}</ValidationLabel>
+        </InputWrapper>
+        <Button
+          type="submit"
           onClick={() => {
-            handlePassInput();
+            console.log('click');
           }}
         >
-          <PasswordImg src={passImg} alt="passImg" />
-        </OpenPasswordButton>
-        <ValidationLabel>{formik.errors.password}</ValidationLabel>
-      </InputWrapper>
-      <Button
-        type="submit"
-        onClick={() => {
-          console.log('click');
-        }}
-      >
-        Submit
-      </Button>
+          Submit
+        </Button>
+      </AuthForm>
       {!user ? (
         <a
           href={`https://github.com/login/oauth/authorize?client_id=${GITHUB_CLIENT_ID}&redirect_uri=${gitHubRedirectURL}?path=${path}&scope=user:email`}
@@ -84,6 +91,7 @@ export default function ControlledForm() {
       ) : (
         <h1>Welcome {user.login}</h1>
       )}
-    </AuthForm>
+      <Link to={linkTo}>{textForLink}</Link>
+    </FormWrapper>
   );
 }
