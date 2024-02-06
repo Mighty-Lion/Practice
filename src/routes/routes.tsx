@@ -5,6 +5,7 @@ import { Admin } from '@/pages/Admin';
 import { Logout } from '@/pages/Logout';
 import { PrivateRoute } from '@/components/PrivateRoute';
 import NotFound from '@/pages/NotFound';
+import { Signup } from '@/pages/Signup';
 
 export function useRoutes() {
   return (
@@ -13,6 +14,7 @@ export function useRoutes() {
       <Route path="*" element={<NotFound />} />
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
 
       <Route element={<PrivateRoute />}>
         <Route path="/admin" element={<Admin />} />
