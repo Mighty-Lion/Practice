@@ -1,6 +1,11 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
+export const NotFoundTitle = styled.h1 `
+  margin-bottom: 20px;
+  color: white;
+`
+
 export const NotFoundButton = styled(Link)`
   display: flex;
   justify-content: center;
@@ -12,8 +17,10 @@ export const NotFoundButton = styled(Link)`
   border-radius: 5px;
   background: #646cff;
   color: white;
+  cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &:focus {
     background: #9a9ff9;
     color: #e6e5f2;
   }

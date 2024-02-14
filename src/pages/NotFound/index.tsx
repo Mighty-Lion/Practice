@@ -1,17 +1,10 @@
 import { css } from '@emotion/css';
-import { NotFoundButton } from './index.styles';
+import { NotFoundButton, NotFoundTitle } from './index.styles';
 
 function Index() {
   return (
     <>
-      <h1
-        className={css`
-          margin-bottom: 20px;
-          color: white;
-        `}
-      >
-        Not Found
-      </h1>
+      <NotFoundTitle>Not Found</NotFoundTitle>
       <NotFoundButton to="/">Go Home</NotFoundButton>
     </>
   );
