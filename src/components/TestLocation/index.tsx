@@ -2,9 +2,9 @@ import { useState } from 'react';
 import {
   LocationContainer,
   LocationLabel,
-  LocationTitle,
 } from '@/components/TestLocation/index.styles';
 import { Button } from '@/components/Button/index.styles';
+import { TitleH2 } from '@/components/TitleH2/index.styles';
 
 interface ILocationProps {
   latitude: number;
@@ -35,7 +35,7 @@ export function TestLocation() {
       <Button onClick={getUserLocation}>Get User Location</Button>
       {userLocation && (
         <LocationContainer>
-          <LocationTitle>User Location</LocationTitle>
+          <TitleH2>User Location</TitleH2>
           <LocationLabel>Latitude: {userLocation.latitude}</LocationLabel>
           <LocationLabel>Longitude: {userLocation.longitude}</LocationLabel>
         </LocationContainer>
