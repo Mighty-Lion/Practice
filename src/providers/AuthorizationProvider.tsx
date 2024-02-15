@@ -1,4 +1,4 @@
-import {createContext, PropsWithChildren, useCallback, useMemo, useState} from 'react';
+import { createContext, PropsWithChildren, useCallback, useState } from 'react';
 
 export interface IAuthorizationContextProps {
   isAuthorized?: boolean;
