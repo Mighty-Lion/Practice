@@ -4,7 +4,6 @@ import {
   PropsWithChildren,
   SetStateAction,
   useEffect,
-  useMemo,
   useState,
 } from 'react';
 
@@ -13,12 +12,17 @@ interface IThemeContextProps {
   setTheme: Dispatch<SetStateAction<string>>;
 }
 
-export const ThemeContext = createContext<IThemeContextProps | null>(null!);
-
-const themes = {
-  dark: 'dark',
-  light: 'light',
+export const themes = {
+    dark: 'dark',
+    light: 'light',
 };
+type Themes = keyof typeof themes;
+export const ThemeContext = createContext<IThemeContextProps>({
+    theme: Themes,
+    setTheme: (theme: Themes) => void,
+});
+
+
 
 function getTheme() {
   const theme = `${window?.localStorage?.getItem('theme')}`;
