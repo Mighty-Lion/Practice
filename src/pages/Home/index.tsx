@@ -1,6 +1,6 @@
 import { TestLocation } from '@/components/TestLocation';
 import { PieChart } from '@/components/PieChart';
-import { TittleH1 } from '@/components/TitleH1/TittleH1.styles';
+import { TittleH1 } from '@/components/TitleH1/index.styles';
 
 export function Home() {
   return (
