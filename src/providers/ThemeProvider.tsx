@@ -44,9 +44,6 @@ export function ThemeProvider({ children }: PropsWithChildren) {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  console.log(document.documentElement.dataset.theme)
-
-  console.log('theme', theme);
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
       {children}

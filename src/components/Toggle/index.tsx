@@ -21,7 +21,6 @@ export function Toggle() {
     if (theme === themes.dark) setTheme(themes.light);
   };
 
-  console.log('theme Toggle', theme);
   return (
     <TogglerContainer htmlFor="toggler">
       <IconContainer left>
