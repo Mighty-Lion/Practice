@@ -11,11 +11,10 @@ import { MoonIcon } from '@/components/Toggle/icons/MoonIcon';
 
 export function Toggle() {
   const { theme, setTheme } = useTheme();
-  const [isToggled, setIsToggled] = useState(true);
+  const [isToggled, setIsToggled] = useState(() => {
+    return theme !== themes.light;
+  });
 
-  useEffect(() => {
-    if (theme === 'light') setIsToggled(false);
-  }, []);
   const onToggle = () => {
     setIsToggled((prev) => !prev);
     if (theme === themes.light) setTheme(themes.dark);
