@@ -24,26 +24,26 @@ export const Toggler = styled.span<{ isToggled: boolean }>`
   transition: background-color 0.2s ease;
 
   ${(props) =>
-          props.isToggled &&
-          `
+    props.isToggled &&
+    `
       	background-color: #2bc6ff;
   	`};
 
   &:before {
     position: absolute;
     content: '';
-    left: 2px;
-    top: 2px;
-    width: 21px;
-    height: 21px;
+    left: 3px;
+    top: 3px;
+    width: 20px;
+    height: 20px;
     background-color: #ea8933;
     border-radius: 50%;
-    transition: transform 0.3s ease;
+    transition: all 0.5s ease;
     ${(props) =>
-            props.isToggled &&
-            `
+      props.isToggled &&
+      `
       	transform: translateX(25px);
-  			background-color: #333;
+  			background-color: #e8c255;
   		`};
   }
 `;
