@@ -12,9 +12,11 @@
     --color-gray-100: #EAE5E5;
     --color-gray-200: #ECECEC;
     --color-gray-300: #F1F1F1;
-}
 
-:root {
+    --toggle-bg: #f0eb9d;
+    --toggle-fg: #ffd000;
+    --primary-text-color: #0a0a0a;
+
     /* light theme tokens */
     --background-primary-light: 44, 191, 170;
     --accent-light: 37, 89, 88;
@@ -25,12 +27,12 @@
 }
 
 /* map tokens to proper theme */
-[data-theme='light'] {
-    --background-primary: var(--background-primary-light);
+:root[data-theme='light'] {
+    --background-primary: rgb(var(--background-primary-light));
     --accent: var(--accent-light);
 }
 
-[data-theme='dark'] {
-    --background-primary: var(--background-primary-dark);
+:root[data-theme='dark'] {
+    --background-primary: rgb(var(--background-primary-dark));
     --accent: var(--accent-dark);
 }
