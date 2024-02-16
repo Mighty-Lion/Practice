@@ -5,5 +5,6 @@ export const TitleH2 = styled.h2`
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
-  color: var(--color-white-0);
+  color: var(--primary-text-color);
+	transition: var(--transition-color);
 `;

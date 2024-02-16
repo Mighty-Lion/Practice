@@ -24,15 +24,26 @@
     /* dark theme tokens */
     --background-primary-dark: 25, 48, 66;
     --accent-dark: 90, 182, 204;
+
+    --transition-background-color: background-color 0.5s ease-in;
+    --transition-color: color 0.5s ease-in;
 }
 
 /* map tokens to proper theme */
 :root[data-theme='light'] {
-    --background-primary: rgb(var(--background-primary-light));
+    --background-primary: var(--color-white-100);
+    --header-background: var(--color-gray-300);
     --accent: var(--accent-light);
+    --primary-text-color: var(--color-black-800);
+    --secondary-text-color: var(--color-white-100);
+    --primary-button-background: var(--color-blue-300);
 }
 
 :root[data-theme='dark'] {
     --background-primary: rgb(var(--background-primary-dark));
+    --header-background: var(--color-black-400);
     --accent: var(--accent-dark);
+    --primary-text-color: var(--color-white-100);
+    --secondary-text-color : var(--color-black-800);
+    --primary-button-background: var(--color-blue-100);
 }

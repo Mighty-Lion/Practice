@@ -6,7 +6,8 @@ export const NavbarWrapper = styled.header`
   top: 0;
   left: 0;
   width: 100vw;
-  background: #e5eceb;
+  background: var(--header-background);
+	transition: var(--transition-background-color);
   z-index: 100;
 `;
 
@@ -22,4 +23,6 @@ export const NavbarList = styled.nav`
 
 export const NavbarListLink = styled(Link)`
   font-size: 1rem;
+	color: var(--primary-text-color);
+	transition: var(--transition-color);
 `;

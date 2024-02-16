@@ -21,6 +21,7 @@ body {
     overflow-x: hidden;
     overflow-y: visible;
     background: var(--background-primary);
+    transition: all .5s ease-in;
 }
 
 article,

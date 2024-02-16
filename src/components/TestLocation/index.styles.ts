@@ -12,5 +12,6 @@ export const LocationLabel = styled.label`
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
-  color: var(--color-white-0);
+  color: var(--primary-text-color);
+	transition: var(--transition-color);
 `;
