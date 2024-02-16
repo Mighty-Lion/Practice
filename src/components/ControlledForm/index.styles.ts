@@ -7,12 +7,13 @@ export const FormWrapper = styled.div`
 
   a {
     margin-top: 15px;
-    
+
     font-family: Roboto, sans-serif;
     font-size: 15px;
     font-style: normal;
     font-weight: bold;
-    color: var(--color-white-0);
+    color: var(--primary-text-color);
+    transition: var(--transition-color);
     cursor: pointer;
 
     &:hover,
@@ -65,7 +66,8 @@ export const InputLabel = styled.label`
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
-  color: white;
+  color: var(--primary-text-color);
+  transition: var(--transition-color);
 `;
 
 export const ValidationLabel = styled.label`

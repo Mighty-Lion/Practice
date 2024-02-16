@@ -1,7 +1,13 @@
 import { useEffect, useState } from 'react';
-import { Toggler, TogglerContainer } from '@/components/Toggle/index.styles';
+import {
+  IconContainer,
+  Toggler,
+  TogglerContainer,
+} from '@/components/Toggle/index.styles';
 import { useTheme } from '@/hooks/useTheme';
 import { themes } from '@/providers/ThemeProvider';
+import { SunIcon } from '@/components/Toggle/icons/SunIcon';
+import { MoonIcon } from '@/components/Toggle/icons/MoonIcon';
 
 export function Toggle() {
   const { theme, setTheme } = useTheme();
@@ -19,6 +25,9 @@ export function Toggle() {
   console.log('theme Toggle', theme);
   return (
     <TogglerContainer htmlFor="toggler">
+      <IconContainer left>
+        <SunIcon />
+      </IconContainer>
       <input
         id="toggler"
         type="checkbox"
@@ -27,6 +36,9 @@ export function Toggle() {
         readOnly
       />
       <Toggler isToggled={isToggled} />
+      <IconContainer right>
+        <MoonIcon />
+      </IconContainer>
     </TogglerContainer>
   );
 }
