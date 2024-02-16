@@ -39,9 +39,11 @@ export function PieChart() {
     },
   };
   return (
-    <ChartContainer>
+    <>
       <TitleH2>Pie chart</TitleH2>
-      <Pie data={data} options={options} />
-    </ChartContainer>
+      <ChartContainer>
+        <Pie data={data} width={300} height={300} options={options} />
+      </ChartContainer>
+    </>
   );
 }
