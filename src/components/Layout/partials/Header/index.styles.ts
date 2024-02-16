@@ -11,6 +11,7 @@ export const NavbarWrapper = styled.header`
 `;
 
 export const NavbarList = styled.nav`
+  position: relative;
   display: grid;
   grid-auto-flow: column;
   justify-items: center;

@@ -1,42 +1,49 @@
 import styled from '@emotion/styled';
 
-export const ToggleContainer = styled.div`
-  position: absolute;
-  top: 2em;
-  right: 2em;
+export const TogglerContainer = styled.label`
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  margin: 0 0.75rem;
+
+  input[type='checkbox'] {
+    display: none;
+  }
 `;
 
-export const Toggle = styled.input`
-  visibility: hidden;
-  & + label {
-    display: flex;
-    align-items: center;
-    font-size: 1.5em;
-    cursor: pointer;
-    color: var(--primary-text-color);
-  }
+export const Toggler = styled.span<{ isToggled: boolean }>`
+  position: absolute;
+  cursor: pointer;
+  background-color: #b6b6b6;
+  border-radius: 25px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: background-color 0.2s ease;
 
-  & + label::before {
-    content: '';
-    height: 1em;
-    width: 2em;
-    border-radius: 1em;
-    background-color: var(--toggle-bg);
-    margin-right: 0.5em;
-    transition: background-color 250ms ease-in-out;
-  }
-  & + label::after {
-    content: '';
-    height: 0.8em;
-    width: 0.8em;
-    border-radius: 1em;
-    background-color: var(--toggle-fg);
+  ${(props) =>
+    props.isToggled &&
+    `
+      	background-color: #2bc6ff;
+  	`};
+
+  &:before {
     position: absolute;
-    left: 0.2em;
-    transition: background-color 250ms ease-in-out, transform 250ms ease-in-out;
-  }
-
-  &:checked + label::after {
-    transform: translateX(100%);
+    content: '';
+    left: 2px;
+    top: 2px;
+    width: 21px;
+    height: 21px;
+    background-color: #333;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+    ${(props) =>
+      props.isToggled &&
+      `
+      	transform: translateX(25px);
+  			background-color: #333;
+  		`};
   }
 `;

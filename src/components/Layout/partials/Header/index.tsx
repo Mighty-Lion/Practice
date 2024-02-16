@@ -1,8 +1,8 @@
 import { NavbarWrapper, NavbarList, NavbarListLink } from './index.styles';
 import { Container } from '../../index.styles';
 import { useAuthorization } from '@/hooks/useAuthorization';
+import { Toggle } from '@/components/Toggle';
 
-// eslint-disable-next-line import/prefer-default-export
 export function Header() {
   const { isAuthorized } = useAuthorization();
   return (
@@ -16,6 +16,8 @@ export function Header() {
           ) : (
             <NavbarListLink to="/login">Login</NavbarListLink>
           )}
+        <Toggle />
+
         </NavbarList>
       </Container>
     </NavbarWrapper>
