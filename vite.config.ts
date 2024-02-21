@@ -19,6 +19,7 @@ export default defineConfig({
     "import.meta.vitest": "undefined",
   },
   build: {
+    outDir: './public',
     rollupOptions: {
       output: {
         chunkFileNames: 'assets/js/[name]-[hash].js',
