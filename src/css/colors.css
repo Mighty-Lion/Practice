@@ -8,6 +8,7 @@
     --color-blue-100: #00C5FF;
     --color-blue-200: #57D6FF;
     --color-blue-300: #50AFCD;
+    --color-blue-900: #0981db;
     --color-gray-500: #ABABAB;
     --color-gray-100: #EAE5E5;
     --color-gray-200: #ECECEC;
@@ -37,6 +38,8 @@
     --primary-text-color: var(--color-black-800);
     --secondary-text-color: var(--color-white-100);
     --primary-button-background: var(--color-blue-300);
+    --primary-hover: var(--color-blue-900);
+    --border-color: var(--color-black-900);
 }
 
 :root[data-theme='dark'] {
@@ -46,4 +49,6 @@
     --primary-text-color: var(--color-white-100);
     --secondary-text-color : var(--color-black-800);
     --primary-button-background: var(--color-blue-100);
+    --primary-hover: var(--color-blue-900);
+    --border-color: var(--color-white-0);
 }

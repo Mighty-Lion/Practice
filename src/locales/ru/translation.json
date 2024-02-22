@@ -1,7 +1,5 @@
 {
   "date": {
-    "long" : "Сегодня {{date, DATE_LONG}}",
-    "short" : "Сегодня {{date, DATE_SHORT}}",
     "time": "{{date, DATE_TIME}}"
   },
   "main": {

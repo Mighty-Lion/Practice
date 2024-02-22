@@ -10,12 +10,11 @@ i18n
   .use(initReactI18next)
   .init({
     debug: true,
-    fallbackLng: 'en-EN',
+    fallbackLng: 'en',
     backend: {
       loadPath: 'src/locales/{{lng}}/{{ns}}.json',
     },
   });
-i18n.changeLanguage('ru-RU');
 i18n.services.formatter.add('DATE_LONG', (value, lng, _options) => {
   return DateTime.fromJSDate(value)
     .setLocale(lng)

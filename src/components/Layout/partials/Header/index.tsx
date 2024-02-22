@@ -4,6 +4,7 @@ import { Container } from '../../index.styles';
 import { useAuthorization } from '@/hooks/useAuthorization';
 import { Toggle } from '@/components/Toggle';
 import { Text } from '@/components/Text/index.styles';
+import { DropdownForLanguages } from '../../../DropDown';
 
 export function Header() {
   const { isAuthorized } = useAuthorization();
@@ -19,9 +20,8 @@ export function Header() {
           ) : (
             <NavbarListLink to="/login">Login</NavbarListLink>
           )}
-          <Text>
-            {t('date.time', { date: new Date() })}
-          </Text>
+          <Text>{t('date.time', { date: new Date() })}</Text>
+          <DropdownForLanguages />
           <Toggle />
         </NavbarList>
       </Container>

@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "extract-translations": "i18next -c src/i18next-parser.config.cjs --fail-on-warnings"
   },
   "dependencies": {
     "@emotion/css": "^11.10.6",
@@ -23,6 +24,7 @@
     "i18next": "^23.9.0",
     "i18next-browser-languagedetector": "^7.2.0",
     "i18next-http-backend": "^2.4.3",
+    "i18next-parser": "^8.12.0",
     "jsonwebtoken": "^9.0.2",
     "lodash": "^4.17.21",
     "luxon": "^3.4.4",

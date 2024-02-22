@@ -1,0 +1,7 @@
+{
+  "date": {
+    "long": "Today is {{date, DATE_LONG}}",
+    "short": "Today is {{date, DATE_SHORT}}"
+  },
+  "demo": ""
+}
