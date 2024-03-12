@@ -1,6 +1,19 @@
 {
+  "linkToThePage": {
+    "home": "Home",
+    "admin": "Admin",
+    "logout": "Logout",
+    "login": "Login"
+  },
   "date": {
     "time": "{{date, DATE_TIME}}"
+  },
+  "pieChart": "Pie Chart",
+  "testLocation": {
+    "button": "Get User Location",
+    "title": "User Location",
+    "latitude": "Latitude",
+    "longitude": "Longitude"
   },
   "main": {
     "header": "Welcome to the app!"

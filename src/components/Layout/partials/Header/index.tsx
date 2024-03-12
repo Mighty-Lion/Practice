@@ -13,12 +13,18 @@ export function Header() {
     <NavbarWrapper>
       <Container>
         <NavbarList>
-          <NavbarListLink to="/">Home</NavbarListLink>
-          <NavbarListLink to="/admin">Admin</NavbarListLink>
+          <NavbarListLink to="/">{t('linkToThePage.home')}</NavbarListLink>
+          <NavbarListLink to="/admin">
+            {t('linkToThePage.admin')}
+          </NavbarListLink>
           {isAuthorized ? (
-            <NavbarListLink to="/logout">Logout</NavbarListLink>
+            <NavbarListLink to="/logout">
+              {t('linkToThePage.logout')}
+            </NavbarListLink>
           ) : (
-            <NavbarListLink to="/login">Login</NavbarListLink>
+            <NavbarListLink to="/login">
+              {t('linkToThePage.login')}
+            </NavbarListLink>
           )}
           <Text>{t('date.time', { date: new Date() })}</Text>
           <DropdownForLanguages />

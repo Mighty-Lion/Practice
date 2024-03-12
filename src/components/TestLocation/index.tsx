@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   LocationContainer,
   LocationLabel,
@@ -11,6 +12,7 @@ interface ILocationProps {
   longitude: number;
 }
 export function TestLocation() {
+  const { t } = useTranslation();
   const [userLocation, setUserLocation] = useState<ILocationProps | null>(null);
 
   const getUserLocation = () => {
@@ -32,12 +34,12 @@ export function TestLocation() {
 
   return (
     <LocationContainer>
-      <Button onClick={getUserLocation}>Get User Location</Button>
+      <Button onClick={getUserLocation}>{t('testLocation.button')}</Button>
       {userLocation && (
         <LocationContainer>
-          <TitleH2>User Location</TitleH2>
-          <LocationLabel>Latitude: {userLocation.latitude}</LocationLabel>
-          <LocationLabel>Longitude: {userLocation.longitude}</LocationLabel>
+          <TitleH2>{t('testLocation.title')}</TitleH2>
+          <LocationLabel>{t('testLocation.latitude')}: {userLocation.latitude}</LocationLabel>
+          <LocationLabel>{t('testLocation.longitude')}: {userLocation.longitude}</LocationLabel>
         </LocationContainer>
       )}
     </LocationContainer>

@@ -1,6 +1,7 @@
 import { ArcElement, Chart, Legend, Tooltip } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { ChartContainer } from '@/components/PieChart/index.styles';
 import { TitleH2 } from '@/components/TitleH2/index.styles';
 import { useTheme } from '@/hooks/useTheme';
@@ -8,6 +9,7 @@ import { useTheme } from '@/hooks/useTheme';
 Chart.register(ArcElement, Legend, Tooltip);
 
 export function PieChart() {
+  const { t } = useTranslation();
   const { theme } = useTheme();
   const [textColor, setTextColor] = useState('#171717');
 
@@ -40,7 +42,7 @@ export function PieChart() {
   };
   return (
     <>
-      <TitleH2>Pie chart</TitleH2>
+      <TitleH2>{t('pieChart')}</TitleH2>
       <ChartContainer>
         <Pie data={data} width={300} height={300} options={options} />
       </ChartContainer>
