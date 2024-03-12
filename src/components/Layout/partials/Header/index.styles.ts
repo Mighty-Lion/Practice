@@ -19,6 +19,7 @@ export const NavbarList = styled.nav`
   align-items: center;
   grid-gap: 10px;
   padding: 10px 0;
+  margin-right: 50px;
 `;
 
 export const NavbarListLink = styled(Link)`

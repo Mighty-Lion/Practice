@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 export const DropDownWrapper = styled.div<{ isOpen: boolean }>`
   position: absolute;
   top: 10px;
-  right: 2%;
+  right: -50px;
   border: 1px solid var(--border-color);
   width: 50px;
   max-height: ${(props) => (props.isOpen ? 'auto' : '27px')};
@@ -11,6 +11,7 @@ export const DropDownWrapper = styled.div<{ isOpen: boolean }>`
   overflow: hidden;
   background: var(--header-background);
   transition: var(--transition-background-color);
+  cursor: pointer;
 `;
 
 export const DropDownHeader = styled.div`
