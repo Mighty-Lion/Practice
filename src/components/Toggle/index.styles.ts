@@ -3,8 +3,8 @@ import styled from '@emotion/styled';
 export const TogglerContainer = styled.label`
   position: relative;
   display: inline-block;
-  width: 50px;
-  height: 25px;
+  width: 52px;
+  height: 26px;
   margin: 0 0.75rem;
 
   input[type='checkbox'] {
@@ -42,7 +42,7 @@ export const Toggler = styled.span<{ isToggled: boolean }>`
     ${(props) =>
       props.isToggled &&
       `
-      	transform: translateX(25px);
+      	transform: translateX(27px);
   			background-color: #e8c255;
   		`};
   }
