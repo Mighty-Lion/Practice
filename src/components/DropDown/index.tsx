@@ -6,12 +6,10 @@ import {
   DropDownList,
   DropDownWrapper,
 } from '@/components/DropDown/index.styles';
-import {useTranslation} from "react-i18next";
 
 export function DropdownForLanguages() {
   const [isOpen, setIsOpen] = useState(false);
   const [selected, setSelected] = useState(i18n.language || 'en');
-  const { t } = useTranslation();
   return (
     <DropDownWrapper
       isOpen={isOpen}
