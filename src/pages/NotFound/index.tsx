@@ -1,7 +1,6 @@
-import { css } from '@emotion/css';
 import { NotFoundButton, NotFoundTitle } from './index.styles';
 
-function Index() {
+function NotFound() {
   return (
     <>
       <NotFoundTitle>Not Found</NotFoundTitle>
@@ -10,4 +9,4 @@ function Index() {
   );
 }
 
-export default Index;
+export default NotFound;

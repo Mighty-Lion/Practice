@@ -3,9 +3,8 @@ import { Suspense } from 'react';
 import { TestLocation } from '@/components/TestLocation';
 import { PieChart } from '@/components/PieChart';
 import { TittleH1 } from '@/components/TitleH1/index.styles';
-import { ImageList } from '@/components/ImageList';
 
-export function Home() {
+export default function Home() {
   const { t } = useTranslation();
 
   return (
@@ -16,7 +15,6 @@ export function Home() {
       {/* <div>env variable = {import.meta.env.VITE_API}</div> */}
       <TestLocation />
       <PieChart />
-      <ImageList />
     </>
   );
 }
