@@ -6,9 +6,6 @@ import { ThemeProvider } from '@/providers/ThemeProvider';
 export function App() {
   const routes = useRoutes();
 
-  const { host } = window.location;
-  console.log(host);
-
   return (
     <AuthorizationProvider>
       <ThemeProvider>

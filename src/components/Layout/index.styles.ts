@@ -27,3 +27,9 @@ export const Container = styled.div`
 export const ContentWrapper = styled(Container)`
   padding-top: 50px;
 `;
+
+export const LoadingWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 50px 0 0;
+`;

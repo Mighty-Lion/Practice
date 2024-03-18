@@ -1,13 +1,23 @@
-import { PropsWithChildren, Suspense } from 'react';
+import { PropsWithChildren, Suspense, useMemo } from 'react';
 import { Header } from './partials/Header';
-import { ContentWrapper, Wrapper } from './index.styles';
+import { ContentWrapper, LoadingWrapper, Wrapper } from './index.styles';
 import { Footer } from './partials/Footer';
+import { LoadingSpinner } from '@/components/LoadingSpiner';
 
 export default function Layout({ children }: PropsWithChildren) {
+  function Loading() {
+    return useMemo(() => {
+      return (
+        <LoadingWrapper>
+          <LoadingSpinner />
+        </LoadingWrapper>
+      );
+    }, []);
+  }
   return (
     <Wrapper>
       <Header />
-      <Suspense fallback={<p>Loading...</p>}>
+      <Suspense fallback={<Loading />}>
         <ContentWrapper as="main">{children}</ContentWrapper>
       </Suspense>
       <Footer />
