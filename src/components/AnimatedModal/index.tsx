@@ -60,8 +60,13 @@ export function AnimatedModal({
           initial="hidden"
           animate="visible"
           exit="hidden"
+          onClick={close}
         >
-          <AnimatedModalContent key="modal" variants={modal}>
+          <AnimatedModalContent
+            key="modal"
+            variants={modal}
+            onClick={(e) => e.stopPropagation()}
+          >
             <Link to="/">
               <AnimatedModalClose onClick={close}>
                 <img src={closeSvg} alt="close img" />
