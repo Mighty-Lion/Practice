@@ -16,5 +16,6 @@ export function useModalController() {
     toggle,
     open,
     close,
+    setIsOpen,
   };
 }

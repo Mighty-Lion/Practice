@@ -17,5 +17,8 @@
   },
   "main": {
     "header": "Welcome to the app!"
+  },
+  "modal": {
+    "open": "Open animated modal"
   }
 }
