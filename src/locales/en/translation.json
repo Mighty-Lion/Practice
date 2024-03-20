@@ -1,4 +1,7 @@
 {
+  "errors": {
+    "404": "Request failed, something went wrong"
+  },
   "linkToThePage": {
     "home": "Home",
     "admin": "Admin",
