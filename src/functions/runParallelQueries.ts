@@ -7,7 +7,7 @@ export function runParallelQueries() {
   });
 
   Promise.race([p1, p2]).then(function (value) {
-    console.log(value); // "два"
+    // console.log(value); // "два"
     // Оба вернули resolve, однако p2 вернул результат первым
   });
 }
