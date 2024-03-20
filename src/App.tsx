@@ -3,10 +3,12 @@ import { useRoutes } from '@/routes/routes';
 import { AuthorizationProvider } from '@/providers/AuthorizationProvider';
 import { ThemeProvider } from '@/providers/ThemeProvider';
 import { useModalController } from '@/hooks/useModalController';
+import { runParallelQueries } from '@/functions/runParallelQueries';
 
 export function App() {
   const { isOpen, open, close, setIsOpen } = useModalController();
   const routes = useRoutes({ open });
+  runParallelQueries();
 
   return (
     <AuthorizationProvider>
